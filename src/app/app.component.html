@@ -1,6 +1,8 @@
-<input type="text" [(ngModel)]="inputText" (keydown.enter)="addToList(inputText)"><button (click)="addToList(inputText)">Añadir</button>
+<input type="text" [(ngModel)]="inputText" (keydown.enter)="addToList(inputText)">
+<button (click)="addToList(inputText)">Añadir</button>
 <ul>
-  <li *ngFor="let item of listItems">
+  <li *ngFor="let item of listItems; let idx= index">
     {{item.text}} - {{item.date}}
+    <button class="red" (click)="removeFromList(idx)">x</button>
   </li>
 </ul>

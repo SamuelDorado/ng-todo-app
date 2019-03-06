@@ -11,7 +11,14 @@ export class AppComponent {
   inputText: string;
 
   addToList(text: string) {
-    this.listItems.push(new ListItem(text));
-    this.inputText = '';
+    if (text) {
+      this.listItems.push(new ListItem(text));
+      this.inputText = '';
+    }
+  }
+
+  removeFromList(idx: number) {
+    //remove the selected item from the listItems
+    this.listItems.splice(idx, 1);
   }
 }
